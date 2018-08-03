@@ -3,14 +3,14 @@
 - name: Install required project gems
   bundler:
     state: present
-    chdir: "/home/{{ ansible_user }}/{{ project_name }}"
+    chdir: "/home/{{ ansible_username }}/{{ project_name }}"
 
 - name: Execute capistrano deployment of project
-  become_user: "{{ ansible_user }}"
+  become_user: "{{ ansible_username }}"
   shell: >
     BRANCH={{ git_repo_branch }} cap localhost deploy
   args:
-    chdir: /home/{{ ansible_user }}/{{ project_name }}
+    chdir: /home/{{ ansible_username }}/{{ project_name }}
 
 - name: Restart Apache HTTPD to reload passenger application
   systemd:

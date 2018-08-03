@@ -38,6 +38,8 @@ rails_db_name: ""
 rails_db_user: ""
 rails_db_pass: ""
 
+project_default_admin_password: ""
+
 contact_email_addr: ""
 
 fedora_repo_url: ""
