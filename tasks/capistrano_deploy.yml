@@ -6,6 +6,7 @@
     chdir: "/home/{{ ansible_user }}/{{ project_name }}"
 
 - name: Execute capistrano deployment of project
+  become_user: "{{ ansible_user }}"
   shell: >
     BRANCH={{ git_repo_branch }} cap localhost deploy
   args:
