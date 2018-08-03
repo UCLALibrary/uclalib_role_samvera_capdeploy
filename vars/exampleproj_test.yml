@@ -4,7 +4,7 @@
 
 rails_host_fqdn: "hyraxapp.example.com"
 
-rails_db_adapter: "mysql"
+rails_db_adapter: "mysql2"
 rails_db_pool: "5"
 rails_db_host: "mysqldb.example.com"
 rails_db_name: "exampledb"

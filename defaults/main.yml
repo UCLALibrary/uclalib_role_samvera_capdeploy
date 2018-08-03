@@ -31,7 +31,7 @@ env_name: ""
 ############################################################
 rails_host_fqdn: ""
 
-rails_db_adapter: ""
+rails_db_adapter: "mysql2"
 rails_db_pool: ""
 rails_db_host: ""
 rails_db_name: ""
