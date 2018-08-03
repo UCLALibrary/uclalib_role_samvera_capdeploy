@@ -28,7 +28,7 @@ Variables with default values that **do not** need to be defined in the project 
 
 Variables that **do** need to be defined in the project vars file:
 * rails_host_fqdn - defines the fully qualified domain name of the rails app server
-* rails_db_adapter - defines the type of database back-end (mysql or postgresql) - please note that currently this role only supports a db backend of mysql
+* rails_db_adapter - defines the type of database back-end (`mysql2` or `postgresql`) - please note that currently this role only supports a db backend of `mysql2`
 * rails_db_pool - defines the number of connections to maintain to the database
 * rails_db_host - defines the hostname of the database server
 * rails_db_name - defines the name of the project's database
