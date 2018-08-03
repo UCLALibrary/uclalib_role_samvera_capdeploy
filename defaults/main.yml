@@ -1,0 +1,66 @@
+---
+
+capistrano_user: deploy
+
+capistrano_home_dir: "/home/{{ capistrano_user }}"
+
+capistrano_base: /opt
+
+capistrano_directories:
+  - "{{ capistrano_base }}/{{ project_name }}/shared/config"
+  - "{{ capistrano_base }}/{{ project_name }}/shared/log"
+  - "{{ capistrano_base }}/{{ project_name }}/shared/public/assets"
+  - "{{ capistrano_base }}/{{ project_name }}/shared/tmp/pids"
+  - "{{ capistrano_base }}/{{ project_name }}/releases"
+  - "{{ capistrano_base }}/derivatives"
+  - "{{ capistrano_base }}/uploads"
+  - "{{ capistrano_home_dir }}/.ssh"
+
+systemd_unit_file_dir: /etc/systemd/system
+
+### Should be defined in the play file or inventory file ###
+############################################################
+project_name: ""
+
+env_name: ""
+############################################################
+
+#### Defaults for dotenv ####
+# This is a template for what
+# should appear in a vars file
+############################################################
+rails_host_fqdn: ""
+
+rails_db_adapter: ""
+rails_db_pool: ""
+rails_db_host: ""
+rails_db_name: ""
+rails_db_user: ""
+rails_db_pass: ""
+
+contact_email_addr: ""
+
+fedora_repo_url: ""
+fedora_repo_user: ""
+fedora_repo_password: ""
+
+solr_index_url: ""
+
+redis_host: ""
+redis_port: ""
+
+sidekiq_num_threads: ""
+
+git_repo_url: ""
+
+git_repo_branch: ""
+
+# Defines the list of ssh public keys to add to the capistrano user's authorized key file
+# Each item in the list should be a user's public key or URL to the public key
+# For example:
+# ssh_pub_keys:
+#  - https://github.com/username1.keys
+#  - https://github.com/username2.keys
+#  - https://github.com/username3.keys
+ssh_pub_keys: []
+############################################################

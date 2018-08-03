@@ -1,0 +1,24 @@
+---
+
+- name: Install required project gems
+  bundler:
+    state: present
+    chdir: "/home/{{ ansible_user }}/{{ project_name }}"
+
+- name: Execute capistrano deployment of project
+  shell: >
+    BRANCH={{ git_repo_branch }} cap localhost deploy
+  args:
+    chdir: /home/{{ ansible_user }}/{{ project_name }}
+
+- name: Restart Apache HTTPD to reload passenger application
+  systemd:
+    name: httpd
+    state: restarted
+
+- name: Create the rails app default admin set
+  become_user: "{{ capistrano_user }}"
+  shell: >
+    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
+  args:
+    chdir: "{{ capistrano_base }}/{{ project_name }}/current"

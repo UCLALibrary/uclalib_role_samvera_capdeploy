@@ -1,0 +1,13 @@
+---
+
+- name: Put in place the rails applicaiton Apache HTTPD virtual host configuration file
+  template:
+    src: apache_vhost.j2
+    dest: "/etc/httpd/vhosts.d/{{ project_name }}.httpd.conf"
+    owner: root
+    group: root
+
+- name: Restart Apache HTTPD
+  systemd:
+    name: httpd
+    state: restarted

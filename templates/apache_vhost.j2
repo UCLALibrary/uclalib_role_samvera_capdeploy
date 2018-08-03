@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+  PassengerAppEnv production
+
+  DocumentRoot {{ capistrano_base }}/{{ project_name }}/current/public
+
+  AllowEncodedSlashes NoDecode
+
+  <IfModule mod_rewrite.c>
+    RewriteEngine On
+    ErrorDocument 503 /system/maintenance.html
+    # Return 503 error if the maintenance page exists.
+    RewriteCond %{DOCUMENT_ROOT}/system/maintenance.html -f
+    RewriteCond %{SCRIPT_FILENAME} !maintenance.html
+    RewriteRule ^.*$ - [L,R=503]
+  </IfModule>
+
+  <Directory {{ capistrano_base }}/{{ project_name }}/current/public>
+        Options -MultiViews
+        Require all granted
+  </Directory>
+</VirtualHost>
