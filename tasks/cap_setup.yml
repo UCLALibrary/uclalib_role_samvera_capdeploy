@@ -55,4 +55,3 @@
     dest: /etc/sudoers.d/capistrano-user-httpd-restart
     owner: root
     group: root
-    validate: "/sbin/visudo -qcf /etc/sudoers.d/capistrano-user-httpd-restart"
