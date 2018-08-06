@@ -1,6 +1,7 @@
 ---
 
-# project_name and env_name should be defined in the play file or the inventory file
+# project_name: exampleproj
+# env_name: test
 
 rails_host_fqdn: "hyraxapp.example.com"
 
