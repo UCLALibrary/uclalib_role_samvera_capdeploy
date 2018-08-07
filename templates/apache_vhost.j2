@@ -1,4 +1,7 @@
 <VirtualHost *:80>
+
+  ServerName {{ rails_host_fqdn }}
+
   PassengerAppEnv production
 
   DocumentRoot {{ capistrano_base }}/{{ project_name }}/current/public
