@@ -11,6 +11,7 @@ This role handles the __first deployment__ of hyrax project code from a git repo
 Please take note of the following assumptions:
 * the rails application server uses Red Hat Enterprise Linux 7 for the OS
 * a Solr 7.X server is available with the index core created and project-specific configuration files installed in the core
+* a Fedora 4.7.X repository server is available
 * a MySQL database server is available with the project-specific database created and user account/privileges established
 * a git repository is available containing the project's code
 * all project-specific variables for this role should be defined in a __vars__ file with a name following the format of `projectname_envname.yml`
@@ -19,32 +20,33 @@ Please take note of the following assumptions:
 Role Variables
 --------------
 Variables the need to be defined in the **play file** or the **host inventory file** - please note these should match the naming used for the vars file:
-* project_name - defines the name of the rails application project
-* env_name - defines the name of the deploy environment (e.g. test, stage, prod)
+* `project_name` - defines the name of the rails application project - there is no default value
+* `env_name` - defines the name of the deploy environment (e.g. test, stage, prod) - there is no default value
 
 Variables with default values that **do not** need to be defined in the project vars file:
-* capistrano_user - defines the user account that will perform the code deploy
-* capistrano_base - defines the top-level directory where the project will be deployed
+* `capistrano_user` - defines the user account that will perform the code deploy - default is `deploy`
+* `capistrano_base` - defines the top-level directory where the project will be deployed - default is `/opt`
 
 Variables that **do** need to be defined in the project vars file:
-* rails_host_fqdn - defines the fully qualified domain name of the rails app server
-* rails_db_adapter - defines the type of database back-end (`mysql2` or `postgresql`) - please note that currently this role only supports a db backend of `mysql2`
-* rails_db_pool - defines the number of connections to maintain to the database
-* rails_db_host - defines the hostname of the database server
-* rails_db_name - defines the name of the project's database
-* rails_db_user - defines the user account with access to the database
-* rails_db_pass - defines the password for the database user
-* contact_email_addr - defines the email address for a project contact
-* fedora_repo_url - defines the HTTP url to the Fedora REST interface
-* fedora_repo_user - defines the username for Fedora access
-* fedora_repo_password - defines the password for the Fedora user
-* solr_index_url - defines the HTTP url to the project's Solr core
-* redis_host - defines the hostname of the server running Redis
-* redis_port - defines the port number where Redis is reachable
-* sidekiq_num_threads - defines the number of Sidekiq threads to maintain
-* git_repo_url - defines the HTTP url to the project's git repository
-* git_repo_branch - defines the name of the project's git branch to deploy
-* ssh_pub_keys - defines the list of ssh public keys to install in the deploy user's authorized_keys file; this allows for other users to perform deployments
+* `rails_host_fqdn` - defines the fully qualified domain name of the rails app server
+* `rails_db_adapter` - defines the type of database back-end (`mysql2` or `postgresql`) - please note that currently this role only supports a db backend of `mysql2`
+* `rails_db_pool` - defines the number of connections to maintain to the database
+* `rails_db_host` - defines the hostname of the database server
+* `rails_db_name` - defines the name of the project's database
+* `rails_db_user` - defines the user account with access to the database
+* `rails_db_pass` - defines the password for the database user
+* `project_default_admin_password` - defines the rails app admin password that will be created at first deploy
+* `contact_email_addr` - defines the email address for a project contact
+* `fedora_repo_url` - defines the HTTP url to the Fedora REST interface
+* `fedora_repo_user` - defines the username for Fedora access
+* `fedora_repo_password` - defines the password for the Fedora user
+* `solr_index_url` - defines the HTTP url to the project's Solr core
+* `redis_host` - defines the hostname of the server running Redis
+* `redis_port` - defines the port number where Redis is reachable
+* `sidekiq_num_threads` - defines the number of Sidekiq threads to maintain
+* `git_repo_url` - defines the HTTP url to the project's git repository
+* `git_repo_branch` - defines the name of the project's git branch to deploy
+* `ssh_pub_keys` - defines the list of ssh public keys to install in the deploy user's authorized_keys file; this allows for other users to perform deployments
 
 An example vars file is available as a part of this role, named `exampleproj_test.yml`
 
@@ -97,7 +99,7 @@ Example Playbook
     - { role: uclalib_role_pip }
     - { role: uclalib_role_imagemagick }
     - { role: uclalib_role_libreoffice, libreoffice_version: '5.4.7' }
-    - { role: uclalib_role_ffmpeg, ffmpeg_version: '4.0.1' }
+    - { role: uclalib_role_ffmpeg, ffmpeg_version: '4.0.2' }
     - { role: uclalib_role_fits, fits_version: '1.3.0' }
     - { role: uclalib_role_ruby, ruby_version: '2.5.1' }
     - { role: uclalib_role_apache }
