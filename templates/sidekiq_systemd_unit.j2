@@ -4,8 +4,8 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/{{ capistrano_base }}/{{ project_name }}/current
-ExecStart=/usr/local/bin/bundle exec sidekiq -e production -C config/sidekiq.yml -L log/sidekiq.log
+WorkingDirectory={{ capistrano_base }}/{{ project_name }}/current
+ExecStart=/bin/bundle exec sidekiq -e production -C config/sidekiq.yml -L log/sidekiq.log
 User={{ capistrano_user }}
 Group={{ capistrano_user }}
 UMask=0002
