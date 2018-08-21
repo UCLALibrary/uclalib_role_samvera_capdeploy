@@ -12,7 +12,7 @@
   lineinfile:
     path: "/etc/logrotate.d/httpd"
     line: "/var/log/httpd/{{ project_name }}/*log"
-    insertbefore: "/var/log/httpd/*log {"
+    insertbefore: "BOF"
     state: present
 
 - name: Prepare Apache HTTPD for SSL
