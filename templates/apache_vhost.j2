@@ -37,7 +37,7 @@
   # Protocol, CipherSuite, and OCSP config in /etc/httpd/conf.d/ssl.conf
   SSLEngine on
   SSLCertificateFile      {{ ssl_cert_file_path }}/{{ rails_host_fqdn }}_cert.cer
-{% if ssl_files[self_signed] == "no" %}
+{% if ssl_files.self_signed == "no" %}
   SSLCertificateChainFile {{ ssl_cert_file_path }}/{{ rails_host_fqdn }}_interm.cer
 {% endif %}
   SSLCertificateKeyFile   {{ ssl_key_file_path }}/{{ rails_host_fqdn }}.key
