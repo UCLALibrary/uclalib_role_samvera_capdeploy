@@ -42,7 +42,7 @@
 - name: Put in place Apache SSL redirect virtual host configuration file
   template:
     src: apache_sslredirect_vhost.j2
-    dest: "/etc/httpd/vhosts.d/{{ project_name }}.httpd.conf"
+    dest: "/etc/httpd/vhosts.d/{{ project_name }}-redirect.httpd.conf"
     owner: root
     group: root
     mode: 0644
