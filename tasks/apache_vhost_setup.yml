@@ -21,8 +21,8 @@
 
 - name: Put in place the rails applicaiton Apache virtual host configuration file
   template:
-    src: apache_ssl_vhost.j2
-    dest: "/etc/httpd/vhosts.d/{{ project_name }}-ssl.httpd.conf"
+    src: apache_vhost.j2
+    dest: "/etc/httpd/vhosts.d/{{ project_name }}.httpd.conf"
     owner: root
     group: root
     mode: 0644
