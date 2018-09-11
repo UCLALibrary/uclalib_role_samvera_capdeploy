@@ -3,7 +3,7 @@
 language: bash
 
 env:
-  - distro=centos6 init=/sbin/init
+  - distro=centos7 init=/sbin/init
 
 services:
   - docker
