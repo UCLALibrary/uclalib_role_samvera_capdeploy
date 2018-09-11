@@ -1,4 +1,4 @@
-uclalib_role_samvera_capdeploy
+[![Build Status](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy.svg?branch=master)](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy)uclalib_role_samvera_capdeploy
 =========
 
 Ansible role to perform an initial code deploy to a UCLA Library Samvera/Hyrax system using Capistrano
