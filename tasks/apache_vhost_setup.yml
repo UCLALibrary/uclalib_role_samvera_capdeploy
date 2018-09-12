@@ -19,7 +19,7 @@
   include_tasks: apache_ssl_config.yml
   when: enable_ssl == "yes"
 
-- name: Put in place the rails applicaiton Apache virtual host configuration file
+- name: Put in place the rails application Apache virtual host configuration file
   template:
     src: apache_vhost.j2
     dest: "/etc/httpd/vhosts.d/{{ project_name }}.httpd.conf"
