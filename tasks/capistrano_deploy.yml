@@ -24,7 +24,3 @@
   args:
     chdir: "{{ capistrano_base }}/{{ project_name }}/current"
 
-- name: Clean-up ansible user project deploy directory
-  file:
-    path: "/home/{{ ansible_username }}/{{ project_name }}"
-    state: absent
