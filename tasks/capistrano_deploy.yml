@@ -24,6 +24,14 @@
   args:
     chdir: "{{ capistrano_base }}/{{ project_name }}/current"
 
+- name: Create test database for developers' box (optional)
+  become_user: "{{ ansible_username }}"
+  shell: >
+    RAILS_ENV=test bundle exec rake db:setup
+  args:
+    chdir: "/home/{{ ansible_username }}/{{ project_name }}/"
+  tags: [ 'never', 'development' ]
+
 - name: Clean-up ansible user project deploy directory
   file:
     path: "/home/{{ ansible_username }}/{{ project_name }}"

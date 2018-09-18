@@ -56,3 +56,10 @@
     dest: "/home/{{ ansible_user }}/{{ project_name }}/.env.development"
     state: link
   tags: [ 'never', 'development' ]
+
+- name: Create symbolic link in project for .env.test
+  file:
+    src: "{{ capistrano_base}}/{{ project_name }}/shared/.env.test"
+    dest: "/home/{{ ansible_user }}/{{ project_name }}/.env.test"
+    state: link
+  tags: [ 'never', 'development' ]
