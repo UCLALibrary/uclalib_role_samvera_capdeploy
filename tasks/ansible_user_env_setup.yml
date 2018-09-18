@@ -42,3 +42,17 @@
     repo: "{{ git_repo_url }}"
     dest: "/home/{{ ansible_username }}/{{ project_name }}"
     version: "{{ git_repo_branch }}"
+
+- name: Create symbolic link in project for .env.production
+  file:
+    src: "{{ capistrano_base}}/{{ project_name }}/shared/.env.production"
+    dest: "/home/{{ ansible_user }}/{{ project_name }}/.env.production"
+    state: link
+  tags: [ 'never', 'development' ]
+
+- name: Create symbolic link in project for .env.development
+  file:
+    src: "{{ capistrano_base}}/{{ project_name }}/shared/.env.development"
+    dest: "/home/{{ ansible_user }}/{{ project_name }}/.env.development"
+    state: link
+  tags: [ 'never', 'development' ]
