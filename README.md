@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy.svg?branch=master)](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy)uclalib_role_samvera_capdeploy
+uclalib_role_samvera_capdeploy &nbsp;[![Build Status](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy.svg?branch=master)](https://travis-ci.org/UCLALibrary/uclalib_role_samvera_capdeploy)
 =========
 
 Ansible role to perform an initial code deploy to a UCLA Library Samvera/Hyrax system using Capistrano
@@ -124,3 +124,16 @@ Example Playbook
     - { role: uclalib_role_redis }
     - { role: uclalib_role_samvera_capdeploy }
 ```
+
+Developers' Box
+-------------------------------
+
+The `uclalib_role_samvera_capdeploy` role can also be used to build a developers' box that mimics the environment used in production. To do this, slight changes are needed in the way that the role is run. The need for these changes is a result of having tagged tasks in the `ansible_user_env_setup.yml`, `capistrano_deploy.yml`, and `dotenv_setup.yml` files, which are specific to a developers' box build. These are ignored for production builds.
+
+To trigger the running of tasks that are only needed for a developers' box, supply the following two arguments when you run your Ansible playbook:
+
+    --skip-tags "always" --tags "untagged,development"
+
+For a production build, you would omit these arguments and the tasks that are intended only for the developers' box would be, by default, skipped.
+
+Running the build with the above `skip-tags` and `tags` arguments ensures that the project .env files for a developers' box are created, that the test database is created, and that the GitHub source is kept on the machine for the developer to use.
