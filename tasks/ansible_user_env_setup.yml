@@ -44,6 +44,13 @@
     version: "{{ git_repo_branch }}"
     depth: 1
 
+- name: Convert shallow clone to full clone for developers
+  become_user: "{{ ansible_username }}"
+  shell: >
+    cd "/home/{{ ansible_username }}/{{ project_name }}"; /usr/bin/git fetch --unshallow
+  ignore_errors: true
+  tags: [ 'never', 'development' ]
+
 - name: Create symbolic link in project for .env.production
   file:
     src: "{{ capistrano_base}}/{{ project_name }}/shared/.env.production"
