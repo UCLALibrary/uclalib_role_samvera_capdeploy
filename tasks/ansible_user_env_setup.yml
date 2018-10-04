@@ -42,7 +42,6 @@
     repo: "{{ git_repo_url }}"
     dest: "/home/{{ ansible_username }}/{{ project_name }}"
     version: "{{ git_repo_branch }}"
-    depth: 1
 
 - name: Create symbolic link in project for .env.production
   file:
