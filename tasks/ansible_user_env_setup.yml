@@ -63,3 +63,12 @@
     dest: "/home/{{ ansible_user }}/{{ project_name }}/.env.test"
     state: link
   tags: [ 'never', 'development' ]
+
+- name: Allow dev user to shutdown the machine
+  copy:
+    src: "00-stop-reboot.rules"
+    dest: "/etc/polkit-1/rules.d/00-stop-reboot.rules"
+    owner: root
+    group: root
+    mode: 0644
+  tags: [ 'never', 'development' ]
