@@ -17,7 +17,7 @@ Please take note of the following assumptions:
 * project-specific variables for this role can be defined in a __vars__ file with a name following the format of `projectname_envname.yml`
     * an example vars file is available in `vars/exampleproj_test.yml`
     * this vars file will contain sensitive information and should be encrypted with ansible-vault
-    * NOTE: if you choose not to use the vars file for including the variable definitions, they should be defined in the playbook file 
+    * NOTE: if you choose not to use the vars file for including the variable definitions, they should be defined in the playbook file
 
 Role Variables
 --------------
@@ -46,6 +46,9 @@ Variables that **do** need to be defined in the project vars file:
 * `redis_host` - defines the hostname of the server running Redis
 * `redis_port` - defines the port number where Redis is reachable
 * `sidekiq_num_threads` - defines the number of Sidekiq threads to maintain
+* `external_iiif_server_url` - (optional) defines the URL to an external IIIF image server
+* `csv_file_path` - defines the filesystem path to the csv file containing file names of content to ingest
+* `import_file_path` - defines the filesystem path to the directory containing the objects to ingest
 * `git_repo_url` - defines the HTTP url to the project's git repository
 * `git_repo_branch` - defines the name of the project's git branch to deploy
 * `ssh_pub_keys` - defines the list of ssh public keys to install in the deploy user's authorized_keys file; this allows for other users to perform deployments

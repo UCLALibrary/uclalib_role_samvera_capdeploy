@@ -29,6 +29,8 @@ env_name: ""
 # This is a template for what
 # should appear in a vars file
 ############################################################
+sidekiq_num_threads: ""
+
 rails_host_fqdn: ""
 
 rails_db_adapter: "mysql2"
@@ -51,7 +53,12 @@ solr_index_url: ""
 redis_host: ""
 redis_port: ""
 
-sidekiq_num_threads: ""
+external_iiif_server_url: "empty"
+
+csv_file_path: ""
+import_file_path: ""
+
+### End dotenv variables
 
 git_repo_url: ""
 

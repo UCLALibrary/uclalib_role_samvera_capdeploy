@@ -33,3 +33,10 @@ SOLR_URL={{ solr_index_url }}
 
 REDIS_HOST={{ redis_host }}
 REDIS_PORT={{ redis_port }}
+
+{% if external_iiif_server_url != "empty" %}
+IIIF_SERVER_URL={{ external_iiif_server_url }}
+{% endif %}
+
+CSV_FILE={{ csv_file_path }}
+IMPORT_FILE_PATH={{ import_file_path }}
