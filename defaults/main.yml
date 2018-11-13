@@ -60,6 +60,9 @@ import_file_path: ""
 
 ### End dotenv variables
 
+# Define if we should use the deflate_module in Apache HTTPD config
+use_deflate_module: "yes"
+
 git_repo_url: ""
 
 git_repo_branch: ""
