@@ -62,6 +62,8 @@ external_iiif_server_url: "empty"
 csv_file_path: ""
 import_file_path: ""
 
+google_tag_manager_id: "empty"
+
 ### End dotenv variables
 
 # Define if we should use the deflate_module in Apache HTTPD config

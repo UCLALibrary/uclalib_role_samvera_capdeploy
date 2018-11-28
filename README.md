@@ -49,6 +49,7 @@ Variables that **do** need to be defined in the project vars file:
 * `sidekiq_num_threads` - defines the number of Sidekiq threads to maintain
 * `external_iiif_server_url` - (optional) defines the URL to an external IIIF image server
 * `csv_file_path` - defines the filesystem path to the csv file containing file names of content to ingest
+* `google_tag_manager_id` - (optional) - defines a Google Tag Manager key to be used within the server environment
 * `import_file_path` - defines the filesystem path to the directory containing the objects to ingest
 * `git_repo_url` - defines the HTTP url to the project's git repository
 * `git_repo_branch` - defines the name of the project's git branch to deploy
