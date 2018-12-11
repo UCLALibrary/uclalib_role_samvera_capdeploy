@@ -64,6 +64,8 @@ import_file_path: ""
 
 google_tag_manager_id: "empty"
 
+rollbar_api_token: "empty"
+
 ### End dotenv variables
 
 # Define if we should use the deflate_module in Apache HTTPD config
