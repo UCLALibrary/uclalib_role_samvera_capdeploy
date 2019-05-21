@@ -68,6 +68,8 @@ rollbar_api_token: "empty"
 
 ursus_host: "empty"
 
+fits_servlet_url: "empty"
+
 ### End dotenv variables
 
 # Define if we should use the deflate_module in Apache HTTPD config
