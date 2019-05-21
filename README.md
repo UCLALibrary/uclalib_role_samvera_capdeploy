@@ -52,6 +52,7 @@ Variables that **do** need to be defined in the project vars file:
 * `google_tag_manager_id` - (optional) - defines a Google Tag Manager key to be used within the server environment
 * `rollbar_api_token` - (optional) - defines the api token to use with the Rollbar error reporting tool
 * `ursus_host` - (optional) - defines the url to the corresponding ursus server
+* `fits_servlet_url` - (optional) - defines the URL to a FITS endpoint if FITS is installed as a web service in Tomcat
 * `import_file_path` - defines the filesystem path to the directory containing the objects to ingest
 * `git_repo_url` - defines the HTTP url to the project's git repository
 * `git_repo_branch` - defines the name of the project's git branch to deploy
