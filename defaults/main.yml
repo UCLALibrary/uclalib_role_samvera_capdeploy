@@ -79,6 +79,9 @@ git_repo_url: ""
 
 git_repo_branch: ""
 
+# Define if we should allow search engines to crawl this site (yes | no)
+allow_web_crawl: ""
+
 # Defines the list of ssh public keys to add to the capistrano user's authorized key file
 # Each item in the list should be a user's public key or URL to the public key
 # For example:
