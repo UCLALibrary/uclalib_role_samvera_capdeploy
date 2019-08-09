@@ -38,6 +38,14 @@ REDIS_PORT="6379"
 IIIF_SERVER_URL={{ external_iiif_server_url }}
 {% endif %}
 
+{% if iiif_service_url != "empty" %}
+IIIF_SERVICE_URL={{ iiif_service_url }}
+{% endif %}
+
+{% if iiif_manifest_url != "empty" %}
+IIIF_MANIFEST_URL={{ iiif_manifest_url }}
+{% endif %}
+
 CSV_FILE={{ csv_file_path }}
 IMPORT_FILE_PATH={{ import_file_path }}
 

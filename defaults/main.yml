@@ -59,6 +59,9 @@ redis_port: ""
 
 external_iiif_server_url: "empty"
 
+iiif_service_url: "empty"
+iiif_manifest_url: "empty"
+
 csv_file_path: ""
 import_file_path: ""
 

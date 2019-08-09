@@ -48,6 +48,8 @@ Variables that **do** need to be defined in the project vars file:
 * `redis_port` - defines the port number where Redis is reachable
 * `sidekiq_num_threads` - defines the number of Sidekiq threads to maintain
 * `external_iiif_server_url` - (optional) defines the URL to an external IIIF image server
+* `iiif_service_url` - (optional) defines the URL to a IIIF image server
+* `iiif_manifest_url` - (optional) defines the URL endpoint for submitting/retrieving IIIF manifests
 * `csv_file_path` - defines the filesystem path to the csv file containing file names of content to ingest
 * `google_tag_manager_id` - (optional) - defines a Google Tag Manager key to be used within the server environment
 * `rollbar_api_token` - (optional) - defines the api token to use with the Rollbar error reporting tool
