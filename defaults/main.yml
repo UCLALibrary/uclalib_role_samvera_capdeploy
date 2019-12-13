@@ -73,6 +73,15 @@ ursus_host: "empty"
 
 fits_servlet_url: "empty"
 
+recaptcha_site_key: ""
+recaptcha_secret_key: ""
+
+email_from_address: ""
+email_to_address: ""
+
+email_server_url: ""
+email_port: ""
+
 ### End dotenv variables
 
 # Define if we should use the deflate_module in Apache HTTPD config
