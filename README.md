@@ -55,6 +55,12 @@ Variables that **do** need to be defined in the project vars file:
 * `rollbar_api_token` - (optional) - defines the api token to use with the Rollbar error reporting tool
 * `ursus_host` - (optional) - defines the url to the corresponding ursus server
 * `fits_servlet_url` - (optional) - defines the URL to a FITS endpoint if FITS is installed as a web service in Tomcat
+* `recaptcha_site_key` - (optional) defines the site key to use with the recaptcha service
+* `recaptcha_secret_key` - (optional) defines the secret key to use with the recaptcha service
+* `email_from_address` - defines the email address used in conjunction with the contact form where email will be sent from
+* `email_to_address` - defines the email address used in conjunction with the contact form where email will be sent to
+* `email_server_url` - the url of the SMTP server email should be sent
+* `email_port` - the port number of the SMTP email server 
 * `import_file_path` - defines the filesystem path to the directory containing the objects to ingest
 * `git_repo_url` - defines the HTTP url to the project's git repository
 * `git_repo_branch` - defines the name of the project's git branch to deploy
