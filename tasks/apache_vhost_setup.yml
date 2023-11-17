@@ -26,6 +26,7 @@
     owner: root
     group: root
     mode: 0644
+  notify: Restart Apache HTTPD
 
 - name: Put in place Apache deflate_module configuration
   copy:
@@ -35,8 +36,4 @@
     group: root
     mode: 0644
   when: use_deflate_module == "yes"
-
-- name: Restart Apache HTTPD
-  systemd:
-    name: httpd
-    state: restarted
+  notify: Restart Apache HTTPD
