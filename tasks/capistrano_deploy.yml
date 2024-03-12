@@ -20,11 +20,13 @@
   bundler:
     state: present
     chdir: "/home/{{ ansible_username }}/{{ project_name }}"
+  environment:
+    PATH: /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 
 - name: Execute capistrano deployment of project
   become_user: "{{ ansible_username }}"
   shell: >
-    BRANCH={{ git_repo_branch }} cap localhost deploy
+    ssh-agent sh -c 'ssh-add; BRANCH={{ git_repo_branch }} cap localhost deploy'
   args:
     chdir: /home/{{ ansible_username }}/{{ project_name }}
 
@@ -36,9 +38,12 @@
 - name: Create the rails app default admin set
   become_user: "{{ capistrano_user }}"
   shell: >
-    RAILS_ENV=production bundle exec rake hyrax:default_admin_set:create
+    bundle exec rake hyrax:default_admin_set:create
   args:
     chdir: "{{ capistrano_base }}/{{ project_name }}/current"
+  environment:
+    PATH: /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+    RAILS_ENV: production
 
 - name: Create test database for developers' box (optional)
   become_user: "{{ ansible_username }}"
