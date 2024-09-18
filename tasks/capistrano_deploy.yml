@@ -57,5 +57,4 @@
   file:
     path: "/home/{{ ansible_username }}/{{ project_name }}"
     state: absent
-  tags:
-    - always
+
